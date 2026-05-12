@@ -1,10 +1,9 @@
 services:
   - type: web
     name: smarthire
-    env: java
-    rootDir: backend
-    buildCommand: mvn clean package -DskipTests
-    startCommand: java -jar target/smarthire-backend-1.0.0.jar
+    runtime: docker
+    dockerfilePath: ./backend/Dockerfile
+    dockerContext: .
     plan: free
     envVars:
       - key: JWT_SECRET
